@@ -1,12 +1,24 @@
-package com.example.studantregistration.Modal;
+package com.example.studantregistration.Model;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+@Entity
+@Table(name = "studant")
 public class Studant implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "studant_name", nullable = false, length = 80)
     private String name;
+
+    @Column(name = "studant_age", nullable = false, length = 2)
     private String age;
+
+    @Column
     private boolean present;
 
     public Studant() {
